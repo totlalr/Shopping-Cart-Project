@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 //CONTEXT
 import ProductContextProvider from "./context/ProductContextProvider";
+import CardContextProvider from "./context/CardContextProvider";
 //Components
 import Store from "./components/Store";
 import ProductDetials from "./components/ProductDetials";
@@ -10,11 +11,13 @@ import ProductDetials from "./components/ProductDetials";
 function App() {
   return (
     <ProductContextProvider>
-      <Switch>
-        <Route path="/products/:id" component={ProductDetials} />
-        <Route path="/products" component={Store} />
-        <Redirect to="/products" />
-      </Switch>
+      <CardContextProvider>
+        <Switch>
+          <Route path="/products/:id" component={ProductDetials} />
+          <Route path="/products" component={Store} />
+          <Redirect to="/products" />
+        </Switch>
+      </CardContextProvider>
     </ProductContextProvider>
   );
 }
