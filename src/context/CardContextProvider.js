@@ -33,7 +33,8 @@ const cartReducer = (state, action) => {
       return {
         ...state,
         selectedItem: [...state.selectedItem],
-        ...sumItem(state.selectedItem)
+        ...sumItem(state.selectedItem),
+        checkout: true,
       };
 
     case "REMOVE_ITEM":
@@ -44,7 +45,7 @@ const cartReducer = (state, action) => {
       return {
         ...state,
         selectedItem: [...newSelectedItems],
-        ...sumItem(state.selectedItem)
+        ...sumItem(state.selectedItem),
       };
 
     case "INCREASE":
@@ -54,7 +55,7 @@ const cartReducer = (state, action) => {
       state.selectedItem[indexI].quantity++;
       return {
         ...state,
-        ...sumItem(state.selectedItem)
+        ...sumItem(state.selectedItem),
       };
 
     case "DEREASE":
@@ -64,7 +65,7 @@ const cartReducer = (state, action) => {
       state.selectedItem[indexD].quantity--;
       return {
         ...state,
-        ...sumItem(state.selectedItem)
+        ...sumItem(state.selectedItem),
       };
 
     case "CHECKOUT":
