@@ -6,10 +6,14 @@ import Product from "./shared/Product";
 //Context
 import { ProductsContext } from "./../context/ProductContextProvider";
 
+// Style
+import styles from "./Store.module.css";
+
 const Store = () => {
   const products = useContext(ProductsContext);
   return (
     <div
+      className={styles.container}
       style={{
         display: "flex",
         flexWrap: "wrap",
